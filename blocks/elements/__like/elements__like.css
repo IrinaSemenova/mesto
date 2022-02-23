@@ -1,0 +1,23 @@
+.elements__like {
+    background-image: url(../../../image/like.svg);
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    width: 22px;
+    height: 19px;
+    padding: 0;
+    margin: 0 20px 0 0;
+    cursor: pointer;
+    
+}
+
+.elements__like:hover {
+    opacity: 0.5;
+}
+@media (max-width: 320px) {
+    .elements__like {
+        margin: 0 20px 0 0;
+    }
+}
