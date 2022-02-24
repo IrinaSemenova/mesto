@@ -19,55 +19,55 @@
                     <img class="profile__avatar" src="./image/avatar_image.jpg" alt="Фото Ж.И.Кусто">
                     <div class="profile__info">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
-                        <button class="profile__edit-button"></button>
+                        <button class="profile__edit-button" type="button"></button>
                       <p class="profile__subtitle">Исследователь океана</p>
                     </div>
                  </div>
-                <div class="profile__add-button"></div>
+                <button class="profile__add-button" type="button"></button>
             </section>
 
             <section class="elements">
                 <ul class="elements__list">
                     <li class="elements__items">
-                        <img class="elements__img" src="image/karachaevsk.jpg" alt="Карачаевск">
+                        <img class="elements__img" src="image/karachaevsk.jpg" alt="Фото крепости в Карачаевске">
                         <div class="elements__block">
                             <h2 class="elements__title">Карачаевск</h2>
-                            <button class="elements__like"></button>
+                            <button class="elements__like" type="button"></button>
                         </div>
                     </li>
                     <li class="elements__items">
-                        <img class="elements__img" src="image/Elbrus.jpg" alt="Эльбрус">
+                        <img class="elements__img" src="image/Elbrus.jpg" alt="Фото Горы Эльбрус">
                         <div class="elements__block">
                             <h2 class="elements__title">Гора Эльбрус</h2>
-                            <button class="elements__like"></button>
+                            <button class="elements__like" type="button"></button>
                         </div>
                     </li>
                     <li class="elements__items">
-                        <img class="elements__img" src="image/Dombai.jpg" alt="Домбаи">
+                        <img class="elements__img" src="image/Dombai.jpg" alt="Фото Горы Домбаи">
                         <div class="elements__block">
                             <h2 class="elements__title">Домбаи</h2>
-                            <button class="elements__like"></button>
+                            <button class="elements__like" type="button"></button>
                         </div>
                     </li>
                     <li class="elements__items">
-                        <img class="elements__img" src="image/Elbrus.jpg" alt="Эльбрус">
+                        <img class="elements__img" src="image/Elbrus.jpg" alt="Фото Горы Эльбрус">
                         <div class="elements__block">
                             <h2 class="elements__title">Гора Эльбрус</h2>
-                            <button class="elements__like"></button>
+                            <button class="elements__like" type="button"></button>
                         </div>
                     </li>
                     <li class="elements__items">
-                        <img class="elements__img" src="image/Dombai.jpg" alt="Домбаи">
+                        <img class="elements__img" src="image/Dombai.jpg" alt="Фото Горы Домбаи">
                         <div class="elements__block">
                             <h2 class="elements__title">Домбаи</h2>
-                            <button class="elements__like"></button>
+                            <button class="elements__like" type="button"></button>
                         </div>
                     </li>
                     <li class="elements__items">
-                        <img class="elements__img" src="image/karachaevsk.jpg" alt="Карачаевск">
+                        <img class="elements__img" src="image/karachaevsk.jpg" alt="Фото крепости в Карачаевске">
                         <div class="elements__block">
                             <h2 class="elements__title">Карачаево-Черкесия</h2>
-                            <button class="elements__like"></button>
+                            <button class="elements__like" type="button"></button>
                         </div>
                     </li>
                 </ul>
@@ -82,10 +82,10 @@
             <div class="popup__container">
                 <button class="popup__closeButton"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form">
+                <form class="popup__form" name="editForm">
                     <fieldset class="popup__fieldset">
-                        <input class="popup__input popup__input_type_name" type="text" placeholder="Имя">
-                        <input class="popup__input popup__input_type_job" type="text" placeholder="Профессия">
+                        <input class="popup__input popup__input_type_name" type="text" placeholder="Имя" name="userName">
+                        <input class="popup__input popup__input_type_job" type="text" placeholder="Профессия" name="job">
                         <button class="popup__submit" type="submit">Сохранить</button>
                     </fieldset>
                 </form>
@@ -94,6 +94,6 @@
 
     </div>
 
-    <script src="index.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
