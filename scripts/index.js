@@ -15,9 +15,13 @@ editButton.addEventListener ('click', function (){
     });
     
 
-    closeButton.addEventListener ('click', function () {
+closeButton.addEventListener ('click', function () {
     popup.classList.remove('popup_opened');
     });
+
+function closePopup () {
+        popup.classList.remove('popup_opened');
+    };
 
 let formElement = document.querySelector ('.popup__form');
 function formSubmitHandler (evt) {
@@ -27,9 +31,6 @@ function formSubmitHandler (evt) {
     title.textContent = inputName.value;
     subtitle.textContent = inputJob.value;
 
-    function closePopup () {
-    popup.classList.remove('popup_opened');
-};
     closePopup ();
 }
 
