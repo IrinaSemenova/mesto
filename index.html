@@ -28,48 +28,6 @@
 
             <section class="elements">
                 <ul class="elements__list">
-                    <li class="elements__items">
-                        <img class="elements__img" src="image/karachaevsk.jpg" alt="Фото крепости в Карачаевске">
-                        <div class="elements__block">
-                            <h2 class="elements__title">Карачаевск</h2>
-                            <button class="elements__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__items">
-                        <img class="elements__img" src="image/Elbrus.jpg" alt="Фото Горы Эльбрус">
-                        <div class="elements__block">
-                            <h2 class="elements__title">Гора Эльбрус</h2>
-                            <button class="elements__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__items">
-                        <img class="elements__img" src="image/Dombai.jpg" alt="Фото Горы Домбаи">
-                        <div class="elements__block">
-                            <h2 class="elements__title">Домбаи</h2>
-                            <button class="elements__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__items">
-                        <img class="elements__img" src="image/Elbrus.jpg" alt="Фото Горы Эльбрус">
-                        <div class="elements__block">
-                            <h2 class="elements__title">Гора Эльбрус</h2>
-                            <button class="elements__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__items">
-                        <img class="elements__img" src="image/Dombai.jpg" alt="Фото Горы Домбаи">
-                        <div class="elements__block">
-                            <h2 class="elements__title">Домбаи</h2>
-                            <button class="elements__like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="elements__items">
-                        <img class="elements__img" src="image/karachaevsk.jpg" alt="Фото крепости в Карачаевске">
-                        <div class="elements__block">
-                            <h2 class="elements__title">Карачаево-Черкесия</h2>
-                            <button class="elements__like" type="button"></button>
-                        </div>
-                    </li>
                 </ul>
             </section>
         </main>
@@ -77,8 +35,19 @@
         <footer class="footer">
             <p class="footer__copyright">© 2022 Mesto Russia</p>
         </footer>
-       
-        <div class="popup">  
+        
+            <template class="templateCard"> 
+                <li class="elements__items">
+                    <img class="elements__img" src="" alt="">
+                    <button class="elements__trash" type="button"></button>
+                    <div class="elements__block">
+                        <h2 class="elements__title"></h2>
+                        <button class="elements__like" type="button"></button>
+                    </div>
+                </li>
+            </template>
+
+        <div class="popup popup_type_edit">  
             <div class="popup__container">
                 <button class="popup__closeButton" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
@@ -92,6 +61,27 @@
             </div>
         </div>
 
+        <div class="popup popup_type_zoom">
+            <div class="popup__containerImg">
+                <button class="popup__closeButton" type="button"></button>
+                <img class="popup__img" src="" alt="">
+                <h2 class="popup__cardTitle"></h2>
+            </div>
+        </div>
+
+        <div class="popup popup_type_card">
+            <div class="popup__container">
+                <button class="popup__closeButton" type="button"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <form class="popup__form" name="newCards">
+                    <fieldset class="popup__fieldset">
+                        <input class="popup__input popup__input_type_imgName" type="text" placeholder="Название" name="imgName">
+                        <input class="popup__input popup__input_type_imgLink" type="text" placeholder="Ссылка на картинку" name="imgLink">
+                        <button class="popup__submit" type="submit">Создать</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="./scripts/index.js"></script>
