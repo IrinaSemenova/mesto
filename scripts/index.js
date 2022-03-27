@@ -10,6 +10,7 @@ const popupEditForm = popupEdit.querySelector ('.popup__form');
 const popupEditInputName = popupEdit.querySelector('.popup__input_type_name');
 const popupEditInputJob = popupEdit.querySelector('.popup__input_type_job');
 const popupEditClose = popupEdit.querySelector ('.popup__close-button');
+const popupSubmitEdit = popupEdit.querySelector ('.popup__submit');
 
 const popupZoom = document.querySelector ('.popup_type_zoom');
 const popupZoomClose = popupZoom.querySelector ('.popup__close-button');
@@ -21,6 +22,7 @@ const popupCardForm = popupCard.querySelector ('.popup__form');
 const popupCardClose = popupCard.querySelector ('.popup__close-button');
 const popupCardImg = popupCard.querySelector ('.popup__input_type_img-link');
 const popupCardName = popupCard.querySelector ('.popup__input_type_img-name');
+const popupSubmitCard = popupCard.querySelector ('.popup__submit');
 
 const popupCloseOverlay = document.querySelectorAll('.popup');
 
@@ -76,6 +78,7 @@ buttonEditProfile.addEventListener ('click', function (){
      evt.preventDefault(); 
      popupEditTitle.textContent = popupEditInputName.value;
      popupEditSubtitle.textContent = popupEditInputJob.value;
+     submitDisable(popupSubmitEdit);
      closePopup (popupEdit);
  }
  popupEditForm.addEventListener('submit', formSubmitHandler);
@@ -135,12 +138,18 @@ buttonAddCard.addEventListener('click', function(){
   function createNewCard (evt) {
     evt.preventDefault(); 
     listTemplate.prepend(createCard(popupCardImg.value,popupCardName.value));
+    submitDisable(popupSubmitCard);
     closePopup (popupCard);
     popupCardForm.reset();
   };
   popupCardForm.addEventListener('submit',createNewCard);
 
-
+//submit nonactive
+function submitDisable(evt){
+    evt.classList.add('popup__submit_inactive');
+    evt.setAttribute('disabled', '');
+  }
+  
 
 
 
