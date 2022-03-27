@@ -22,16 +22,17 @@ const popupCardClose = popupCard.querySelector ('.popup__close-button');
 const popupCardImg = popupCard.querySelector ('.popup__input_type_img-link');
 const popupCardName = popupCard.querySelector ('.popup__input_type_img-name');
 
+const popupCloseOverlay = document.querySelectorAll('.popup');
+
 // open & close popup
 function openedPopup (popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown',closeEsc);
-    document.addEventListener('mousedown',closeMouse);
 }
 
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('mousedown',closeMouse);
+    document.removeEventListener('keydown',closeEsc);
 };
 
 // close button
@@ -49,21 +50,19 @@ popupCardClose.addEventListener ('click', function () {
 
 // close by Escape
 function closeEsc(evt) {
-    if (evt.key === 'Escape') {
-        popupEdit.classList.remove('popup_opened');
-        popupZoom.classList.remove('popup_opened');
-        popupCard.classList.remove('popup_opened');
+    if (evt.key === "Escape"){
+      closePopup(document.querySelector('.popup_opened'));
     }
-};
+  };
 
 // close by mousedown
-function closeMouse(evt) {
-    if (evt.target.classList.contains('popup')) {
-        popupEdit.classList.remove('popup_opened');
-        popupZoom.classList.remove('popup_opened');
-        popupCard.classList.remove('popup_opened');
-    }
-};
+popupCloseOverlay.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+    });
+});
 
 // form profile
 buttonEditProfile.addEventListener ('click', function (){
@@ -86,9 +85,9 @@ buttonEditProfile.addEventListener ('click', function (){
 
 // create card
 const listTemplate = document.querySelector('.elements__list');
+const cardTemplate = document.querySelector('.template-card').content;
 
   function createCard(iLink, iName){
-    const cardTemplate = document.querySelector('.template-card').content;
     const cardElement = cardTemplate.cloneNode(true);
     const cardElementImg = cardElement.querySelector('.elements__img');
         cardElementImg.src = iLink;
@@ -137,6 +136,7 @@ buttonAddCard.addEventListener('click', function(){
     evt.preventDefault(); 
     listTemplate.prepend(createCard(popupCardImg.value,popupCardName.value));
     closePopup (popupCard);
+    popupCardForm.reset();
   };
   popupCardForm.addEventListener('submit',createNewCard);
 

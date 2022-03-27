@@ -47,7 +47,7 @@ const object = {
       }
       else {
         buttonElement.classList.remove(object.inactiveButtonClass);
-        buttonElement.removeAttribute('disabled', '');
+        buttonElement.removeAttribute('disabled');
       }
     };
   
