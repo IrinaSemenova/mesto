@@ -55,6 +55,8 @@ export default class formValidate {
     }
   };
 
+  
+
 // add listener forEach
   _setEventListeners () {
     this._formElement.addEventListener('submit', (event) =>{
@@ -68,6 +70,13 @@ export default class formValidate {
       });
     });
   }
+
+//submit nonactive
+  submitDisable (evt) {
+    evt.classList.add('popup__submit_inactive');
+    evt.setAttribute('disabled', '');
+  }
+
 // validation
   enableValidation (){
     this._formList = Array.from(document.querySelectorAll(this._formSelector));

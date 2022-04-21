@@ -1,8 +1,10 @@
 import {openedPopup} from './popup.js';
+import {zoomCard} from './constant.js';
 export default class Card {
   constructor(name, link){
     this._name = name;
     this._link = link;
+    
   }
 
   _getTemplate() {
@@ -20,17 +22,15 @@ export default class Card {
   }
 
   _trash(){
-    this._element.querySelector('.elements__trash').closest('.elements__items').remove();
+    this._element.closest('.elements__items').remove();
+    this._element = null;
   }
   
   _popupImageOpen () {
-    this._popupZoom = document.querySelector ('.popup_type_zoom');
-    this._popupZoomImg = this._popupZoom.querySelector ('.popup__img');
-    this._popupZoomTitle = this._popupZoom.querySelector ('.popup__card-title');
-    this._popupZoomImg.src = this._link;
-    this._popupZoomImg.alt = this._name;
-    this._popupZoomTitle.textContent = this._name;
-    openedPopup (this._popupZoom);
+    zoomCard.popupZoomImg.src = this._link;
+    zoomCard.popupZoomImg.alt = this._name;
+    zoomCard.popupZoomTitle.textContent = this._name;
+    openedPopup (zoomCard.popupZoom);
   }
   
   _setEventListeners(){

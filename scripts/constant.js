@@ -29,4 +29,10 @@ const addCard = {
     popupCardName: document.querySelector ('.popup__input_type_img-name'),
     popupSubmitCard: document.querySelector ('#popup__submit_type-add')
 }
-  export {object, popups, editProfile, addCard};
+
+const zoomCard = {
+    popupZoom: document.querySelector ('.popup_type_zoom'),
+    popupZoomImg: document.querySelector ('.popup__img'),
+    popupZoomTitle: document.querySelector ('.popup__card-title')
+}
+  export {object, popups, editProfile, addCard, zoomCard};

@@ -1,6 +1,6 @@
 import {object, editProfile, addCard} from './constant.js';
-import Card from './cards.js';
-import {openedPopup, closePopup, popupCloseMouseButton} from './popup.js';
+import Card from './Cards.js';
+import {openedPopup, closePopup} from './popup.js';
 import formValidate from './FormValidator.js';
 import {initialCards} from './initialCards.js';
 
@@ -17,7 +17,7 @@ function formSubmitHandler (evt) {
      evt.preventDefault(); 
      editProfile.popupEditTitle.textContent = editProfile.popupEditInputName.value;
      editProfile.popupEditSubtitle.textContent = editProfile.popupEditInputJob.value;
-     submitDisable(editProfile.popupSubmitEdit);
+     validationEdit.submitDisable(editProfile.popupSubmitEdit);
      closePopup (editProfile.popupEdit);
  }
 editProfile.popupEditForm.addEventListener('submit', formSubmitHandler);
@@ -41,17 +41,11 @@ addCard.buttonAddCard.addEventListener('click', function() {
     openedPopup(addCard.popupCard);
   });
 
-//submit nonactive
-function submitDisable(evt){
-    evt.classList.add('popup__submit_inactive');
-    evt.setAttribute('disabled', '');
-  }
-
 // create card
 function createNewCard(evt) {
     evt.preventDefault();  
     document.querySelector('.elements__list').prepend(createCard(addCard.popupCardName.value, addCard.popupCardImg.value));
-    submitDisable(addCard.popupSubmitCard); 
+    validationAdd.submitDisable(addCard.popupSubmitCard); 
     addCard.popupCardForm.reset();
     closePopup(addCard.popupCard);
   }
