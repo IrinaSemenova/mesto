@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 <body class="body">
     <div class="page">
       <header class="header">
-            <img class="header__logo" src="./image/Logo.svg" alt="Место">
+            <img class="header__logo" src=<%=require("./image/Logo.svg")%> alt="Место">
         </header>
 
         <main class="content">
             <section class="profile">
                 <div class="profile__author">
-                    <img class="profile__avatar" src="./image/avatar_image.jpg" alt="Фото Ж.И.Кусто">
+                    <img class="profile__avatar" src=<%=require("./image/avatar_image.jpg")%> alt="Фото Ж.И.Кусто">
                     <div class="profile__info">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
                         <button class="profile__edit-button" type="button"></button>
@@ -54,12 +53,12 @@
                 <form class="popup__form" name="editForm" id="popup__form_type_edit" novalidate>
                     <fieldset class="popup__fieldset">
                         <section class="popup__section">
-                            <input class="popup__input popup__input_type_name" id="name" type="text" placeholder="Имя" name="userName" minlength="2" maxlength="40" required>
-                            <span class="popup__input-error name-input-error" id="name-error"></span>
+                            <input class="popup__input popup__input_type_name" id="username" type="text" placeholder="Имя" name="username" minlength="2" maxlength="40" required>
+                            <span class="popup__input-error name-input-error" id="username-error"></span>
                         </section>
                        <section class="popup__section">
-                        <input class="popup__input popup__input_type_job" id="job" type="text" placeholder="Профессия" name="job" minlength="2" maxlength="200" required>
-                        <span class="popup__input-error job-input-error" id="job-error"></span>
+                        <input class="popup__input popup__input_type_job" id="userjob" type="text" placeholder="Профессия" name="userjob" minlength="2" maxlength="200" required>
+                        <span class="popup__input-error job-input-error" id="userjob-error"></span>
                        </section>
                         
                         <button class="popup__submit" type="submit" id="popup__submit_type-edit">Сохранить</button>
@@ -99,6 +98,6 @@
         </div>
     </div>
    
-    <script type="module" src="./scripts/index.js"></script>
+    
 </body>
 </html>
