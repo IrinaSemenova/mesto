@@ -8,7 +8,7 @@ const object = {
   };
 
 const popups = document.querySelectorAll('.popup');
-  
+const template = '.template-card';
 const editProfile = {
     buttonEditProfile: document.querySelector ('.profile__edit-button'),
     popupEdit: document.querySelector ('.popup_type_edit'),
@@ -35,4 +35,4 @@ const zoomCard = {
     popupZoomImg: document.querySelector ('.popup__img'),
     popupZoomTitle: document.querySelector ('.popup__card-title')
 }
-  export {object, popups, editProfile, addCard, zoomCard};
+  export {object, popups, editProfile, addCard, zoomCard, template};

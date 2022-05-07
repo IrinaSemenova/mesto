@@ -1,7 +1,7 @@
 import './index.css';
 
-import {object, editProfile, addCard} from '../utils/constant.js'; 
-import Card from '../components/Cards.js'; 
+import {object, editProfile, addCard, template} from '../utils/constant.js'; 
+import Card from '../components/Card.js'; 
 import formValidate from '../components/FormValidator.js'; 
 import {initialCards} from '../utils/initialCards.js'; 
 import Section from '../components/Section.js';
@@ -58,7 +58,7 @@ editProfile.buttonEditProfile.addEventListener('click', ()=>{
 
 // generate card
   function createCard (name, link){
-    const card = new Card ({name, link, handleCardClick},'.template');
+    const card = new Card ({name, link, handleCardClick}, template);
     const cardElement = card.generateCard(); 
     return cardElement; 
   }
