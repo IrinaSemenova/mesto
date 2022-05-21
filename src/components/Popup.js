@@ -2,6 +2,7 @@ export default class Popup {
     constructor (popupSelector){
         this._popupSelector = document.querySelector(popupSelector);  
         this._closeButton = this._popupSelector.querySelector('.popup__close-button');
+        this._form = this._popupSelector.querySelector('.popup__form');
     }
 
     open () { 
@@ -29,4 +30,19 @@ export default class Popup {
             }
             }); 
     }
+
+    // loading
+    loading(loading) {
+        if (loading) {
+            this._form.querySelector('.popup__submit').textContent = 'Сохранение...';
+        } else {
+            if (this._popupSelector.classList.contains("popup_type_card")) {
+                this._form.querySelector('.popup__submit').textContent = 'Создать';
+            }
+            else {
+                this._form.querySelector('.popup__submit').textContent = 'Сохранить';
+            }
+            this._form.querySelector('.popup__submit').textContent = 'Сохранить';
+        }
+  }
 }

@@ -15,7 +15,8 @@
         <main class="content">
             <section class="profile">
                 <div class="profile__author">
-                    <img class="profile__avatar" src=<%=require("./image/avatar_image.jpg")%> alt="Фото Ж.И.Кусто">
+                    <button class="profile__edit-avatar" type="button"></button>
+                    <img class="profile__avatar" src=<%=require("./image/avatar_image.jpg")%> alt="Аватар пользователя">
                     <div class="profile__info">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
                         <button class="profile__edit-button" type="button"></button>
@@ -41,7 +42,10 @@
                     <button class="elements__trash" type="button"></button>
                     <div class="elements__block">
                         <h2 class="elements__title"></h2>
-                        <button class="elements__like" type="button"></button>
+                        <div class="elements__button">
+                            <button class="elements__like" type="button"></button>
+                            <span class="elements__count">1</span>
+                        </div>
                     </div>
                 </li>
             </template>
@@ -82,12 +86,12 @@
                 <form class="popup__form" name="newCards" id="popup__form_type_add" novalidate>
                     <fieldset class="popup__fieldset">
                         <section class="popup__section">
-                            <input class="popup__input popup__input_type_img-name" id="img" type="text" placeholder="Название" name="imgName" minlength="2" maxlength="30" required>
-                            <span class="popup__input-error img-input-error" id="img-error"></span>
+                            <input class="popup__input popup__input_type_img-name" id="name" type="text" placeholder="Название" name="name" minlength="2" maxlength="30" required>
+                            <span class="popup__input-error img-input-error" id="name-error"></span>
                         </section>
                         
                         <section class="popup__section">
-                            <input class="popup__input popup__input_type_img-link" id="link" type="url" placeholder="Ссылка на картинку" name="imgLink" required>
+                            <input class="popup__input popup__input_type_img-link" id="link" type="url" placeholder="Ссылка на картинку" name="link" required>
                             <span class="popup__input-error url-input-error" id="link-error"></span>
                         </section>
                         
@@ -96,6 +100,34 @@
                 </form>
             </div>
         </div>
+
+        <div class="popup popup_type_delete">
+            <div class="popup__container">
+                <button class="popup__close-button" type="button"></button>
+                <h2 class="popup__title popup__title_lowmargin">Вы уверены?</h2>
+                <form class="popup__form" name="deleteCard" id="popup__form_type_delete" novalidate>
+                    <button class="popup__submit" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup popup_type_editAvatar">
+            <div class="popup__container">
+                <button class="popup__close-button" type="button"></button>
+                <h2 class="popup__title">Обновить аватар</h2>
+                <form class="popup__form" name="editAvatar" id="popup__form_type_editAvatar" novalidate>
+                    <fieldset class="popup__fieldset">
+                        <section class="popup__section">
+                            <input class="popup__input popup__input_type_editAvatar" id="editAvatar" type="url" placeholder="Ссылка на картинку" name="editAvatar" required>
+                            <span class="popup__input-error ava-input-error" id="editAvatar-error"></span>
+                        </section>
+                        <button class="popup__submit" type="submit" id="popup__submit_type-editAvatar">Сохранить</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+
     </div>
    
     

@@ -17,7 +17,10 @@ const editProfile = {
     popupEditForm: document.querySelector ('#popup__form_type_edit'),
     popupEditInputName: document.querySelector('.popup__input_type_name'),
     popupEditInputJob: document.querySelector('.popup__input_type_job'),
-    popupSubmitEdit: document.querySelector ('#popup__submit_type-edit')
+    popupSubmitEdit: document.querySelector ('#popup__submit_type-edit'),
+    buttonEditAvatar: document.querySelector ('.profile__edit-avatar'),
+    popupEditInputAvatar: document.querySelector('.popup__input_type_editAvatar'),
+    popupEditAvatar: document.querySelector ('#popup__form_type_editAvatar'),
 }
 
 const addCard = {
