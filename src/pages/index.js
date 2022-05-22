@@ -26,24 +26,18 @@ function errorApi(err){
 }
 
 // create Api for userInfo & Card
-api.getUserInfo()
-  .then((user) => {
-    userInfo.setUserInfo(user);
-    userId = user._id;
-    console.log(user);
-  })
-  .catch((err) => {
-    errorApi(err);
-  });
+Promise.all([api.getUserInfo(), api.getInitialCards()]) 
+.then (([user, initialCards]) => {
+  userInfo.setUserInfo(user);
+  userId = user._id;
+  section.renderItems(initialCards);
 
-api.getInitialCards()
-  .then((initialCards) =>{
-    section.renderItems(initialCards);
-    console.log(initialCards);
-  })
-  .catch((err) => {
-    errorApi(err);
-  });
+  console.log(user);
+  console.log(initialCards);
+})
+.catch((err) => {
+  errorApi(err);
+});
 
 // create user Info 
 const userInfo = new UserInfo({
@@ -59,12 +53,12 @@ const formEdit = new PopupWithForm ({
     api.editUserInfo(inputValues) 
       .then((inputValues) => {
         userInfo.setUserInfo(inputValues);
+        formEdit.close(); 
       })
       .catch((err) => {
         errorApi(err);
       })  
       .finally(() => {
-        formEdit.close(); 
         formEdit.loading(false);
       });
   }
@@ -87,12 +81,12 @@ const formEditAvatar = new PopupWithForm ({
     api.editUserAvatar(inputValues) 
       .then((inputValues) => {
         userInfo.setAvatarInfo(inputValues); 
+        formEdit.close();
       })
       .catch((err) => {
         errorApi(err);
       })
       .finally(() => {
-        formEdit.close();
         formEditAvatar.loading(false);
       });
   }
@@ -124,7 +118,7 @@ function createCard (data){
         api.deleteCard(cardId)
           .then(() => {
             popupCardDelete.close();
-            card.trash();
+            card.removeCard();
             console.log(cardId);
           })
           .catch((err) => {
@@ -171,12 +165,12 @@ const formAdd = new PopupWithForm ({
     api.addNewCard(data)
       .then ((data) => {
         section.addItems(createCard(data));
+        formAdd.close();
       })
       .catch((err) => {
         errorApi(err);
       })
       .finally(() => {
-        formAdd.close();
         formAdd.loading(false);
       });
     }

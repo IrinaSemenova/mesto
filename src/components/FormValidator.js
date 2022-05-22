@@ -73,7 +73,7 @@ export default class formValidate {
 
 //submit nonactive
   submitDisable (evt) {
-    evt.classList.add('popup__submit_inactive');
+    evt.classList.add(this._inactiveButtonClass);
     evt.setAttribute('disabled', '');
   }
 

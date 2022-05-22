@@ -28,21 +28,6 @@ export default class Popup {
             if (evt.target.classList.contains('popup_opened')) { 
                 this.close() 
             }
-            }); 
+        }); 
     }
-
-    // loading
-    loading(loading) {
-        if (loading) {
-            this._form.querySelector('.popup__submit').textContent = 'Сохранение...';
-        } else {
-            if (this._popupSelector.classList.contains("popup_type_card")) {
-                this._form.querySelector('.popup__submit').textContent = 'Создать';
-            }
-            else {
-                this._form.querySelector('.popup__submit').textContent = 'Сохранить';
-            }
-            this._form.querySelector('.popup__submit').textContent = 'Сохранить';
-        }
-  }
 }

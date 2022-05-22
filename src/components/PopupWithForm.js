@@ -6,6 +6,7 @@ export default class PopupWithForm extends Popup{
         this._formSubmitHandler = formSubmitHandler;     
         this._form = this._popupSelector.querySelector('.popup__form');
         this._inputList= this._form.querySelectorAll('.popup__input');
+        this._popupSubmit = this._form.querySelector('.popup__submit');
     }
 
     _getInputValues(){
@@ -21,12 +22,25 @@ export default class PopupWithForm extends Popup{
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault()
             this._formSubmitHandler(this._getInputValues())
-            this.close();
         });      
     }
     close(){
         super.close()
         this._form.reset();
     } 
-    
+
+    // loading
+    loading(loading) {
+        if (loading) {
+            this._popupSubmit.textContent = 'Сохранение...';
+        } else {
+            if (this._popupSelector.classList.contains("popup_type_card")) {
+                this._popupSubmit.textContent = 'Создать';
+            }
+            else {
+                this._popupSubmit.textContent = 'Сохранить';
+            }
+            this._popupSubmit.textContent = 'Сохранить';
+        }
+    }
 }
